@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "AuraPlayerController.generated.h"
-
+class IEnemyInterface;
 
 struct FInputActionValue;
 class UInputMappingContext;
@@ -18,6 +18,8 @@ class AURA_API AAuraPlayerController : public APlayerController
 
 public:
 	AAuraPlayerController();
+
+	virtual void PlayerTick(float DeltaSeconds) override;
 	
 protected:
 	virtual void BeginPlay() override;
@@ -32,5 +34,10 @@ private:
 	TObjectPtr<UInputAction> MoveAction;
 
 	void Move(const FInputActionValue& InputActionValue);
+
+	void CursorTrace();
+
+	IEnemyInterface* LastActor;
+	IEnemyInterface* CurrentActor;
 	
 };

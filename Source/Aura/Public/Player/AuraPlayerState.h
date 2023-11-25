@@ -30,7 +30,7 @@ protected:
 	TObjectPtr<UAttributeSet> AttributeSet;
 
 public:
-	virtual const UAbilitySystemComponent* GetAbilitySystemComponent() const override {return  AbilitySystemComponent;};
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override {return  AbilitySystemComponent;};
 	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 	
 };
